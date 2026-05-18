@@ -1,0 +1,448 @@
+.container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s ease;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mode-work {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5253 100%);
+}
+
+.mode-shortBreak {
+  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+}
+
+.mode-longBreak {
+  background: linear-gradient(135deg, #54a0ff 0%, #2e86de 100%);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.settingsBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingsBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.settingsPanel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.settingsPanel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.settingsPanel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.settingsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.settingsSection h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.savePresetRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.savePresetRow input {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.savePresetRow button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.savePresetRow button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.savePresetRow button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.presetList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.presetItem {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.presetLoadBtn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.presetLoadBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.presetDeleteBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.presetDeleteBtn:hover {
+  background: rgba(255, 71, 87, 0.2);
+  color: #ff4757;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.settingsPanel h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.settingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settingRow label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.inputGroup span {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.inputGroup input {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  width: 45px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.inputGroup input.singleInput {
+  width: 60px;
+}
+
+.inputGroup input::-webkit-inner-spin-button,
+.inputGroup input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.closeBtn {
+  background: white;
+  color: #333;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.sessions {
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.statusText {
+  font-size: 1rem;
+  font-weight: 500;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.4rem;
+  border-radius: 1rem;
+}
+
+.tab {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.7rem;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tabActive {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.timerWrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.progressRingCircle {
+  transition: stroke-dashoffset 0.3s ease;
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+.progressRingValue {
+  transition: stroke-dashoffset 0.3s linear;
+  stroke: white;
+  stroke-linecap: round;
+}
+
+.time {
+  font-size: 5rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  z-index: 1;
+}
+
+.controls {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  background: white;
+  color: #333;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: #f8f8f8;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Mobile Optimizations --- */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.2rem;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+    width: 100%;
+    height: auto;
+    min-height: 80vh;
+    justify-content: space-around;
+    border-radius: 2rem;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .time {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .timerWrapper {
+    width: 85vw;
+    height: 85vw;
+    max-width: 320px;
+    max-height: 320px;
+  }
+
+  .progressRing {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tab {
+    padding: 0.8rem 0.5rem;
+    font-size: 1rem;
+    flex: 1;
+  }
+
+  .tabs {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .controls {
+    gap: 2.5rem;
+  }
+
+  .btn {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .btn svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .settingsPanel {
+    max-height: 85vh;
+    padding-top: 1rem;
+  }
+  
+  .sessions {
+    font-size: 1.1rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
